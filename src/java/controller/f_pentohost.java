@@ -1,0 +1,62 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Registration;
+
+/**
+ *
+ * @author niranjanprasad M
+ */
+@WebServlet(name = "f_pentohost", urlPatterns = {"/f_pentohost"})
+public class f_pentohost extends HttpServlet {
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
+        try {
+            int cslno = Integer.parseInt(request.getParameter("cslno"));
+            Registration reg = new Registration(session);
+            String STATUS = reg.f_pendingtohost(cslno);
+            if (STATUS.equals("success")) {
+                request.setAttribute("status","Successfully Hosted");
+                request.getRequestDispatcher("pending_exam.jsp").forward(request, response);
+            }
+            if (STATUS.equals("failure")) {
+                 request.setAttribute("status","Hoting failure");
+                request.getRequestDispatcher("pending_exam.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}

@@ -1,0 +1,328 @@
+package org.apache.jsp;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+
+public final class slogin_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List<String> _jspx_dependants;
+
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/footer.jsp");
+  }
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public java.util.List<String> getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("<html>\n");
+      out.write("    <head>\n");
+      out.write("        <meta charset=\"UTF-8\">\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scaled=1.0\">\n");
+      out.write("        <title>Student login page</title>\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n");
+      out.write("        <style>\n");
+      out.write("            @import url('https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap');\n");
+      out.write("            *{\n");
+      out.write("                margin: 0;\n");
+      out.write("                padding: 0;\n");
+      out.write("                box-sizing: border-box;\n");
+      out.write("                user-select: none;\n");
+      out.write("                color: white;\n");
+      out.write("            }\n");
+      out.write("            .bg-img{\n");
+      out.write("                background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.5)),url('images/gmit_Hbg.jpg');\n");
+      out.write("                height: 100vh;\n");
+      out.write("                background-size: cover;\n");
+      out.write("                background-position: center; \n");
+      out.write("            }\n");
+      out.write("            nav{\n");
+      out.write("                width: 100%; height: 14vh;\n");
+      out.write("                background: rgb(0 0 0 / 58%);\n");
+      out.write("                color: white; \n");
+      out.write("                display: flex; \n");
+      out.write("                justify-content: space-between;\n");
+      out.write("                align-items: center;\n");
+      out.write("                text_transform: uppercase;\n");
+      out.write("            }\n");
+      out.write("            /*            nav .logo{\n");
+      out.write("                           align:center;\n");
+      out.write("                            \n");
+      out.write("                        }*/\n");
+      out.write("            nav .logo-text{\n");
+      out.write("                width: 25%; \n");
+      out.write("                text-align: center;\n");
+      out.write("                position: relative;\n");
+      out.write("\n");
+      out.write("            }\n");
+      out.write("            nav .menu{\n");
+      out.write("                width: 70%; \n");
+      out.write("                height: 5vh;\n");
+      out.write("                font-size: 20px;\n");
+      out.write("                display: flex; \n");
+      out.write("                justify-content: flex-end;               \n");
+      out.write("            } \n");
+      out.write("            nav .menu a{\n");
+      out.write("                width: 10%;\n");
+      out.write("                text-decoration: none;                \n");
+      out.write("                color: white;\n");
+      out.write("                font-weight: bold;\n");
+      out.write("            }\n");
+      out.write("            .content{\n");
+      out.write("                position: absolute;\n");
+      out.write("                top: 50%;\n");
+      out.write("                left: 50%;\n");
+      out.write("                z-index: 999;\n");
+      out.write("                text-align: center;\n");
+      out.write("                padding: 30px 32px;\n");
+      out.write("                width: 370px;\n");
+      out.write("                transform: translate(-50%,-50%);\n");
+      out.write("                background: rgba(255,255,255,0.04);\n");
+      out.write("                box-shadow: -1px 4px 28px 0px rgba(50,6,9,7);\n");
+      out.write("                border-radius: 30px;\n");
+      out.write("            }\n");
+      out.write("            .content header{\n");
+      out.write("                color: white;\n");
+      out.write("                font-size: 33px;\n");
+      out.write("                font-weight: 600;\n");
+      out.write("                margin: 0 0 35px 0;\n");
+      out.write("                font-family: 'Montserrat',sans-serif;\n");
+      out.write("            }\n");
+      out.write("            .field{\n");
+      out.write("                position: relative;\n");
+      out.write("                height: 45px;\n");
+      out.write("                width: 100%;\n");
+      out.write("                display: flex;\n");
+      out.write("                background: rgba(255,255,255,0.94);\n");
+      out.write("                border-radius: 10px;\n");
+      out.write("            }\n");
+      out.write("            .field space{\n");
+      out.write("                color: #3498db;\n");
+      out.write("                width: 40px;\n");
+      out.write("                line-height: 45px;\n");
+      out.write("            }\n");
+      out.write("            .field input{\n");
+      out.write("                height: 100%;\n");
+      out.write("                width: 100%;\n");
+      out.write("                background: transparent;\n");
+      out.write("                border: none;\n");
+      out.write("                outline: none;\n");
+      out.write("                color: black;\n");
+      out.write("                font-size: 16px;\n");
+      out.write("                font-family: 'Poppins',sans-serif;\n");
+      out.write("            }\n");
+      out.write("            .space{\n");
+      out.write("                margin-top: 16px;\n");
+      out.write("            }\n");
+      out.write("            /*            .show{\n");
+      out.write("                            position: absolute;\n");
+      out.write("                            right: 13px;\n");
+      out.write("                            font-size: 13px;\n");
+      out.write("                            font-weight: 700;\n");
+      out.write("                            color: #222;\n");
+      out.write("                            display: none;\n");
+      out.write("                            cursor: pointer;\n");
+      out.write("                            font-family: 'Montserrat',sans-serif;\n");
+      out.write("                        }*/\n");
+      out.write("            .pass-key:valid ~ .show{\n");
+      out.write("                display: block;\n");
+      out.write("            }\n");
+      out.write("            .pass{\n");
+      out.write("                text-align: left;\n");
+      out.write("                margin: 10px 0;\n");
+      out.write("                padding-bottom: 20px;\n");
+      out.write("            }\n");
+      out.write("            .pass a{\n");
+      out.write("                color: white;\n");
+      out.write("                text-decoration: none;\n");
+      out.write("                font-family: 'Poppins',sans-serif;\n");
+      out.write("            }\n");
+      out.write("            .pass:hover a{\n");
+      out.write("                text-decoration: underline;\n");
+      out.write("            }\n");
+      out.write("            .field input[type=\"submit\"]{\n");
+      out.write("                background: linear-gradient(360deg,transparent,#3498db);\n");
+      out.write("                border: 1px solid #2691d9;\n");
+      out.write("                color: white;\n");
+      out.write("                font-size: 18px;\n");
+      out.write("                letter-spacing: 1px;\n");
+      out.write("                font-weight: 600;\n");
+      out.write("                cursor: pointer;\n");
+      out.write("                font-family: 'Montserrat',sans-serif;\n");
+      out.write("            }\n");
+      out.write("            .login{\n");
+      out.write("                color: white;\n");
+      out.write("                margin: 20px 0;\n");
+      out.write("                font-family: 'Poppins',sans-serif;\n");
+      out.write("\n");
+      out.write("            }\n");
+      out.write("            a{\n");
+      out.write("                color: yellow;\n");
+      out.write("                text-decoration: blink;\n");
+      out.write("            }\n");
+      out.write("            .footer {\n");
+      out.write("\n");
+      out.write("                position: absolute;\n");
+      out.write("                width: 100%;\n");
+      out.write("                background-color: #353535;\n");
+      out.write("                color: white;\n");
+      out.write("                text-align: center;\n");
+      out.write("                bottom: -110;\n");
+      out.write("                padding: 35px 50px;\n");
+      out.write("                padding-top: 0px;\n");
+      out.write("                padding-right: 50px;\n");
+      out.write("                padding-bottom: -0;\n");
+      out.write("                padding-left: 20px;\n");
+      out.write("\n");
+      out.write("            }   \n");
+      out.write("/*            .errmsg{\n");
+      out.write("            background-color: lightgreen;\n");
+      out.write("            color: black;\n");
+      out.write("            border: 1px solid green;\n");
+      out.write("            width: 24%;\n");
+      out.write("            font-size: 25px;\n");
+      out.write("            padding: 5px;\n");
+      out.write("            padding-left: 100px;\n");
+      out.write("            margin: 80px 580px;\n");
+      out.write("            \n");
+      out.write("        }*/\n");
+      out.write("        </style>\n");
+      out.write("    </head>\n");
+      out.write("    <body>\n");
+      out.write("        <nav>\n");
+      out.write("            <div class=\"logo\"><img src='images/GMIT-logo.jpg' style='width:120px;height:100px;margin-left: 2px;margin-top: -1px;'></div>\n");
+      out.write("            <div class=\"logo-text\" ><h1 > G.MADEGOWDA INSTITUTE OF TECHNOLOGY </h1> </div>\n");
+      out.write("            <div class=\"menu\">                                              \n");
+      out.write("                <a href=\"index.jsp\">Home</a>\n");
+      out.write("                <a href=\"http://gmitmandya.in\">About us</a> \n");
+      out.write("            </div>\n");
+      out.write("        </nav>\n");
+      out.write("        <div class=\"bg-img\">\n");
+      out.write("            <div class=\"content\">\n");
+      out.write("                ");
+ if (request.getAttribute("status") != null) {
+      out.write("\n");
+      out.write("                <h1 class=\"errmsg\"> ");
+      out.print( request.getAttribute("status"));
+      out.write("</h1>\n");
+      out.write("                ");
+}
+      out.write("\n");
+      out.write("                <header>STUDENT LOGIN</header>\n");
+      out.write("                <form method=\"POST\" id=\"slogin\" action=\"Register\">\n");
+      out.write("                    <div class=\"field\">\n");
+      out.write("                        <input type=\"text\" style=\"padding:10px;\" name=\"sid\" placeholder=\"Enter your USN\">\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"field space\">\n");
+      out.write("                        <input type=\"password\" class=\"pass-key\" style=\"padding:10px;\" name=\"spwd\" placeholder=\"Enter your Password\">\n");
+      out.write("                        <span class=\"show\">SHOW</span>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"pass\">\n");
+      out.write("                        <a href=\"ForgotPassword.jsp\">Forgot Password?</a>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"field\">\n");
+      out.write("                        <input type=\"submit\" name=\"slogin\" value=\"LOGIN\">\n");
+      out.write("                    </div><br><br>\n");
+      out.write("                    Don't have account?<a href=\"sregister.jsp\">&nbsp Sign up </a>\n");
+      out.write("                </form>\n");
+      out.write("                <div class=\"login\">\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("        <!--<script>\n");
+      out.write("             showBtn.addEventListener('click', function(){\n");
+      out.write("               if(pass_field.type === \"password\"){\n");
+      out.write("                 pass_field.type = \"text\";\n");
+      out.write("                 showBtn.textContent = \"HIDE\";\n");
+      out.write("                 showBtn.style.color = \"#3498db\";\n");
+      out.write("               }else{\n");
+      out.write("                 pass_field.type = \"password\";\n");
+      out.write("                 showBtn.textContent = \"SHOW\";\n");
+      out.write("                 showBtn.style.color = \"#222\";\n");
+      out.write("               }\n");
+      out.write("              });\n");
+      out.write("            </script>-->\n");
+      out.write("        ");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("    <head>\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <title>Footer Page</title>\n");
+      out.write("        <style>\n");
+      out.write("            \n");
+      out.write("            .footer {\n");
+      out.write("              \n");
+      out.write("                position: fixed;\n");
+      out.write("                width: 100% ;\n");
+      out.write("                background-color: #353535;\n");
+      out.write("                color: white;\n");
+      out.write("                text-align: center;\n");
+      out.write("                bottom: 0;\n");
+      out.write("                padding: 35px 50px;\n");
+      out.write("                padding-top: 5px;\n");
+      out.write("                padding-right: 50px;\n");
+      out.write("                padding-bottom: 5px;\n");
+      out.write("                padding-left: 30px;\n");
+      out.write("                margin-left: 0;\n");
+      out.write("                font-size: 20px;\n");
+      out.write("            }  \n");
+      out.write("        </style>\n");
+      out.write("    </head>\n");
+      out.write("    <body>\n");
+      out.write("       <div class=\"footer\">\n");
+      out.write("             <small>\n");
+      out.write("                      © 2020 GMIT | A project by Students of GMIT\n");
+      out.write("             </small>\n");
+      out.write("         </div>\n");
+      out.write("    </body>\n");
+      out.write("</html>\n");
+      out.write("    \n");
+      out.write("    </body>\n");
+      out.write("</html>\n");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}
